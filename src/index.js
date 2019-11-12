@@ -1,9 +1,24 @@
 import Vue from 'vue'
-import App from './App.vue'
+import { store } from './store/store'
+
+// import App from './App.vue'
 
 import '../assets/app.scss'
 
-new Vue({
+new Vue({ // eslint-disable-line no-new
   el: '#app',
-  render: h => h(App)
+  store,
+  data: {
+    value: 0
+  },
+  computed: {
+    result: function () {
+      return this.value > 37 ? 'done' : 'not there yet'
+    }
+  },
+  watch: {
+    result: function () {
+      setTimeout(() => { this.value = 0 }, 2000)
+    }
+  }
 })

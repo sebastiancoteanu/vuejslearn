@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -17,6 +17,12 @@ module.exports = {
     watchOptions: {
       poll: true
     }
+  },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js'
+    },
+    extensions: ['*', '.js', '.vue', '.json']
   },
   module: {
     rules: [
