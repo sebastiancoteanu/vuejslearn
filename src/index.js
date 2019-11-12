@@ -9,16 +9,15 @@ new Vue({ // eslint-disable-line no-new
   el: '#app',
   store,
   data: {
-    value: 0
+    isRed: false,
+    color: 'green'
   },
   computed: {
-    result: function () {
-      return this.value > 37 ? 'done' : 'not there yet'
-    }
-  },
-  watch: {
-    result: function () {
-      setTimeout(() => { this.value = 0 }, 2000)
+    divClasses () {
+      return {
+        red: this.isRed,
+        blue: !this.isRed
+      }
     }
   }
 })

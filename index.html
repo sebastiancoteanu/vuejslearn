@@ -7,11 +7,10 @@
   </head>
   <body>
     <div id="app">
-      <p>Current value: {{ value }}</p>
-      <button @click="value += 5">Add 5</button>
-      <button @click="value += 1">Add 1</button>
-      <p>{{ result }}</p>
-      <p>{{ value }}</p>
+      <div @click="isRed = !isRed" class="demo" :class="divClasses"></div>
+      <div class="demo" :class="color"></div>
+      <div class="demo" :class="[color, {red: isRed}]"></div>
+      <input type="text" v-model="color">
     </div>
   </body>
 </html>
